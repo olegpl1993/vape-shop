@@ -8,6 +8,7 @@ import Disposable from '../../Pages/Disposable/disposable';
 import Vapes from '../../Pages/Vapes/vapes';
 import Juice from '../../Pages/Juice/juice';
 import Equipment from '../../Pages/Equipment/equipment';
+import PageNotFound from '../../Pages/PageNotFound/pageNotFound';
 
 export default function RootRouter() {
   return (
@@ -21,6 +22,7 @@ export default function RootRouter() {
           <Route path="/juice" element={<Juice />} />
           <Route path="/equipment" element={<Equipment />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
       <div className="footerBox"><Footer /></div>
