@@ -1,0 +1,78 @@
+.header {
+  .logoRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+
+    .logoBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      .logo {
+        font-size: 50px;
+        color: gray;
+        cursor: pointer;
+        &__active {
+          font-size: 50px;
+          color: gray;
+          cursor: default;
+        }
+      }
+    }
+
+    .cart {
+      position: relative;
+      height: 60px;
+      width: 70px;
+      background: url('../img/cartImg.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+
+      .productInCart {
+        position: absolute;
+        left: 28px;
+        top: 1px;
+        height: 29px;
+        width: 29px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: gray;
+        border: 2px solid gray;
+        border-radius: 50%;
+        font-size: 17px;
+        background-color: rgb(0, 230, 0);
+      }
+    }
+  }
+
+  .navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .link {
+    display: block;
+    margin-left: 50px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &__active {
+      display: block;
+      margin-left: 50px;
+      color: black;
+      cursor: default;
+    }
+  }
+}
