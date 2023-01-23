@@ -27,13 +27,24 @@ export default function Header() {
             Vape Family
           </NavLink>
         </div>
-        <div className="cart">
-          <div className="productInCart">0</div>
-        </div>
+        <NavLink to="/cart">
+          <div className="cart">
+            <div className="productInCart">0</div>
+          </div>
+        </NavLink>
       </div>
       <nav className="navigation">
-        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/other">
-          Other page
+        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/disposable">
+          Одноразки
+        </NavLink>
+        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/vapes">
+          Вейпы
+        </NavLink>
+        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/juice">
+          Жидкости
+        </NavLink>
+        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/equipment">
+          Комплектующие
         </NavLink>
       </nav>
     </div>
