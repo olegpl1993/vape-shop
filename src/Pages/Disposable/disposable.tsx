@@ -1,6 +1,6 @@
 import React from 'react';
 import './disposable.scss';
-import data from '../../data/database.json';
+import data from '../../data/database';
 
 function Disposable() {
   console.log(data);
