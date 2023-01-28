@@ -19,7 +19,7 @@ export default function RootRouter() {
 
   return (
     <div className="wrapper">
-      <div className="headerBox"><Header /></div>
+      <div className="headerBox"><Header cartState={cartState} /></div>
       <div className="contentBox">
         <Routes>
           <Route path="/" element={<Main />} />
