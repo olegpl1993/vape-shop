@@ -1,9 +1,10 @@
 import elfbar1500 from './disposable/elfbar1500/elfbar1500';
 
 const data = {
-  disposable: [
+  products: [
     {
       id: 0,
+      category: 'disposable',
       title: 'Elf Bar 1500 Watermelon',
       brand: 'Elf Bar',
       flavor: 'Арбуз',
@@ -14,6 +15,7 @@ const data = {
     },
     {
       id: 1,
+      category: 'disposable',
       title: 'Elf Bar 1500 Banana Ice',
       brand: 'Elf Bar',
       flavor: 'Банан со льдом',
@@ -24,6 +26,7 @@ const data = {
     },
     {
       id: 2,
+      category: 'disposable',
       title: 'Elf Bar 1500 Apple Peach',
       brand: 'Elf Bar',
       flavor: 'Яблоко, персик',
@@ -34,6 +37,7 @@ const data = {
     },
     {
       id: 3,
+      category: 'disposable',
       title: 'Elf Bar 1500 Kiwi Passion Fruit Guava',
       brand: 'Elf Bar',
       flavor: 'Киви, маракуя, гуава',
@@ -44,6 +48,7 @@ const data = {
     },
     {
       id: 4,
+      category: 'disposable',
       title: 'Elf Bar 1500 Strawberry Ice Cream',
       brand: 'Elf Bar',
       flavor: 'Клубничное мороженое',
@@ -54,6 +59,7 @@ const data = {
     },
     {
       id: 5,
+      category: 'disposable',
       title: 'Elf Bar 1500 Cola',
       brand: 'Elf Bar',
       flavor: 'Кола',
@@ -64,6 +70,7 @@ const data = {
     },
     {
       id: 6,
+      category: 'disposable',
       title: 'Elf Bar 1500 Mango',
       brand: 'Elf Bar',
       flavor: 'Манго',
@@ -74,6 +81,7 @@ const data = {
     },
     {
       id: 7,
+      category: 'disposable',
       title: 'Elf Bar 1500 Pineapple Peach Mango',
       brand: 'Elf Bar',
       flavor: 'Персик, ананас, манго',
@@ -84,6 +92,7 @@ const data = {
     },
     {
       id: 8,
+      category: 'disposable',
       title: 'Elf Bar 1500 Pink Lemonade',
       brand: 'Elf Bar',
       flavor: 'Лимон, Лимонад, Малина',
@@ -94,6 +103,7 @@ const data = {
     },
     {
       id: 9,
+      category: 'disposable',
       title: 'Elf Bar 1500 Grape',
       brand: 'Elf Bar',
       flavor: 'Виноград',
@@ -104,6 +114,7 @@ const data = {
     },
     {
       id: 10,
+      category: 'disposable',
       title: 'Elf Bar 1500 Coconut Melon',
       brand: 'Elf Bar',
       flavor: 'Дыня, кокос',

@@ -3,8 +3,9 @@ import './productCard.scss';
 import data from '../../data/database';
 
 function ProductCard({ id }: { id: number }) {
-  const { disposable } = data;
-  const product = disposable[id];
+  const { products } = data;
+  const product = products[id];
+
   return (
     <div className="productCard">
       <div className="imgBox">

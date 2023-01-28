@@ -4,11 +4,11 @@ import data from '../../data/database';
 import ProductCard from '../../components/productCard/productCard';
 
 function Disposable() {
-  const { disposable } = data;
+  const { products } = data;
   return (
     <div className="disposable">
       <div className="productsBox">
-        {disposable.map((product, index) => <ProductCard id={index} />)}
+        {products.map((product, index) => <ProductCard key={product.id} id={index} />)}
       </div>
     </div>
   );

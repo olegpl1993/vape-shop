@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Footer from '../../Footer/footer';
 import Header from '../../Header/header';
@@ -11,6 +11,12 @@ import Equipment from '../../Pages/Equipment/equipment';
 import PageNotFound from '../../Pages/PageNotFound/pageNotFound';
 
 export default function RootRouter() {
+  const [cartState] = useState([
+    { id: 2, number: 1 },
+    { id: 3, number: 2 },
+    { id: 7, number: 1 },
+  ]);
+
   return (
     <div className="wrapper">
       <div className="headerBox"><Header /></div>
@@ -21,7 +27,7 @@ export default function RootRouter() {
           <Route path="/vapes" element={<Vapes />} />
           <Route path="/juice" element={<Juice />} />
           <Route path="/equipment" element={<Equipment />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart cartState={cartState} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
