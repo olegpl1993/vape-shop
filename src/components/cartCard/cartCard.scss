@@ -52,9 +52,24 @@
     .price {
       font-size: 16px;
     }
-    .number {
-      font-size: 20px;
-      color: green;
+    .numberRow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      .button {
+        background-color: rgb(0, 230, 0);
+        color: white;
+        border-radius: 50%;
+        font-size: 20px;
+        height: 30px;
+        width: 30px;
+      }
+      .number {
+        font-size: 20px;
+        color: green;
+      }
     }
     .stock {
       font-size: 16px;

@@ -18,7 +18,11 @@ function CartCard({ id, elementNumber, cartState }:
       </div>
       <div className="numberCol">
         <div className="stock">{`В наличии: ${product.stock} шт`}</div>
-        <div className="number">{`${cartState[elementNumber].number}`}</div>
+        <div className="numberRow">
+          <button className="button" type="button">+</button>
+          <div className="number">{`${cartState[elementNumber].number}`}</div>
+          <button className="button" type="button">-</button>
+        </div>
         <div className="price">{`${product.price * cartState[elementNumber].number} грн`}</div>
       </div>
     </div>
