@@ -4,7 +4,6 @@ import './header.scss';
 import logoImg from '../img/logoImg.png';
 
 export default function Header({ cartState }: { cartState: { id: number, number: number }[] }) {
-  console.log(cartState);
   const numberProducts = cartState.reduce((acc: number, current) => acc + current.number, 0);
   const activeStyles = useMemo(
     () => (bool: boolean) => (bool

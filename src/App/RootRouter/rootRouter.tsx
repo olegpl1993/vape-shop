@@ -11,19 +11,23 @@ import Equipment from '../../Pages/Equipment/equipment';
 import PageNotFound from '../../Pages/PageNotFound/pageNotFound';
 
 export default function RootRouter() {
-  const [cartState] = useState([
+  const [cartState, setPosts] = useState([
     { id: 2, number: 1 },
     { id: 3, number: 2 },
     { id: 7, number: 1 },
   ]);
-
+  // калбек добавляет Product в cartState
+  const addProductToCart = (idProd: number) => {
+    setPosts([...cartState, { id: idProd, number: 1 }]);
+  };
+  console.log(cartState);
   return (
     <div className="wrapper">
       <div className="headerBox"><Header cartState={cartState} /></div>
       <div className="contentBox">
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/disposable" element={<Disposable />} />
+          <Route path="/disposable" element={<Disposable addProductToCart={addProductToCart} />} />
           <Route path="/vapes" element={<Vapes />} />
           <Route path="/juice" element={<Juice />} />
           <Route path="/equipment" element={<Equipment />} />
