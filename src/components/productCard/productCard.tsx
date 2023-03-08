@@ -1,14 +1,21 @@
 import React from 'react';
 import './productCard.scss';
 import data from '../../data/database';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { changeCart } from '../../store/cartSlice';
 
 interface Props {
   id: number,
-  addProductToCart: (id: number) => void;
 }
 
 function ProductCard(props: Props) {
-  const { id, addProductToCart } = props;
+  const { id } = props;
+
+  const cart = useAppSelector((state) => state.cart.cart);
+  const dispatch = useAppDispatch();
+  const addProductToCart = (idProd: number) => {
+    dispatch(changeCart([...cart, { id: idProd, number: 1 }]));
+  };
   const { products } = data;
   const product = products[id];
   return (

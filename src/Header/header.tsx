@@ -1,10 +1,16 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './header.scss';
 import logoImg from '../img/logoImg.png';
+import { useAppSelector } from '../hook';
 
-export default function Header({ cartState }: { cartState: { id: number, number: number }[] }) {
-  const numberProducts = cartState.reduce((acc: number, current) => acc + current.number, 0);
+export default function Header() {
+  const cart = useAppSelector((state) => state.cart.cart);
+  const [numberProducts, setNumberProducts] = useState<number>(0);
+  useEffect(() => {
+    setNumberProducts(cart.reduce((acc: number, current) => acc + current.number, 0));
+  }, [cart]);
+
   const activeStyles = useMemo(
     () => (bool: boolean) => (bool
       ? 'link__active'

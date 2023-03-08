@@ -3,12 +3,7 @@ import './disposable.scss';
 import data from '../../data/database';
 import ProductCard from '../../components/productCard/productCard';
 
-interface Props {
-  addProductToCart: (id: number) => void;
-}
-
-function Disposable(props: Props) {
-  const { addProductToCart } = props;
+function Disposable() {
   const { products } = data;
   return (
     <div className="disposable">
@@ -17,7 +12,6 @@ function Disposable(props: Props) {
           <ProductCard
             key={product.id}
             id={index}
-            addProductToCart={addProductToCart}
           />
         ))}
       </div>

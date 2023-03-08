@@ -1,19 +1,22 @@
 import React from 'react';
 import './cart.scss';
 import CartCard from '../../components/cartCard/cartCard';
+import { useAppSelector } from '../../hook';
 
-function Cart({ cartState }: { cartState: { id: number, number: number }[] }) {
-  console.log(cartState);
+function Cart() {
+  const cart = useAppSelector(
+    (state) => state.cart.cart,
+  );
   return (
     <div className="cart">
       <div className="productsBox">
-        {cartState.map(
+        {cart.map(
           (product, index) => (
             <CartCard
               key={product.id}
               id={product.id}
               elementNumber={index}
-              cartState={cartState}
+              cartState={cart}
             />
           ),
         )}
