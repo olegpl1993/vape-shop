@@ -1,0 +1,13 @@
+.cart {
+  width: 100%;
+  padding: 20px;
+
+  .productsBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
