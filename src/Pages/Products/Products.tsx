@@ -1,12 +1,15 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
-import './disposable.scss';
+import './Products.scss';
 import { Product } from '../../types';
 import ProductsBox from '../../components/productBox/productsBox';
+import { useAppSelector } from '../../hook';
 
-function Disposable() {
+function Products() {
   const [products, setProducts] = useState<Product[]>([]);
   const [renderProducts, setRenderProducts] = useState<Product[]>(products);
+
+  const categoryState = useAppSelector((state) => state.category.category);
 
   const filterProducts = (searchText: string) => {
     const searchName = products.filter(
@@ -22,15 +25,15 @@ function Disposable() {
     const api = async () => {
       const url = 'https://vape-shop-api.glitch.me/api/products';
       const res = await fetch(url);
-      const datas: Product[] = await res.json();
-      setProducts(datas);
+      const data: Product[] = await res.json();
+      setProducts(data);
     };
     api();
   }, []);
 
   useEffect(() => {
-    if (products.length > 0) filterProducts('disposable');
-  }, [products]);
+    if (products.length > 0) filterProducts(categoryState);
+  }, [products, categoryState]);
 
   return (
     <div className="disposable">
@@ -39,4 +42,4 @@ function Disposable() {
   );
 }
 
-export default Disposable;
+export default Products;
