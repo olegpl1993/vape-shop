@@ -1,12 +1,22 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import './disposable.scss';
-import ProductCard from '../../components/productCard/productCard';
 import { Product } from '../../types';
-import LoadingSpinner from '../../components/Spinner/LoadingSpinner';
+import ProductsBox from '../../components/productBox/productsBox';
 
 function Disposable() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [renderProducts, setRenderProducts] = useState<Product[]>(products);
+
+  const filterProducts = (searchText: string) => {
+    const searchName = products.filter(
+      (el) => el.category?.toLowerCase().includes(searchText.toLowerCase()),
+    );
+    const tempState = Array.from(new Set(
+      [...searchName],
+    ));
+    setRenderProducts(tempState);
+  };
 
   useEffect(() => {
     const api = async () => {
@@ -18,20 +28,13 @@ function Disposable() {
     api();
   }, []);
 
-  if (products.length === 0) {
-    return (
-      <div className="disposable">
-        <LoadingSpinner />
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (products.length > 0) filterProducts('disposable');
+  }, [products]);
+
   return (
     <div className="disposable">
-      <div className="productsBox">
-        {products.map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
-      </div>
+      <ProductsBox products={renderProducts} />
     </div>
   );
 }
