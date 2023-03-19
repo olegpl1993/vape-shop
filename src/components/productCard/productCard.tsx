@@ -28,8 +28,6 @@ function ProductCard(props: Props) {
     }
   };
 
-  console.log(product);
-
   return (
     <div className="productCard">
       <div className="imgBox">
