@@ -5,9 +5,8 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     cart: [
-      { id: 2, number: 1 },
-      { id: 3, number: 2 },
-      { id: 7, number: 1 },
+      { id: '640e34b41169913ea4784064', number: 1 },
+      { id: '640e351b1169913ea4784066', number: 2 },
     ],
   },
   reducers: {
