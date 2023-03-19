@@ -1,56 +1,87 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './header.scss';
 import logoImg from '../img/logoImg.png';
-import { useAppSelector } from '../hook';
+import { useAppDispatch, useAppSelector } from '../hook';
+import { changeCategory } from '../store/categorySlice';
 
 export default function Header() {
+  const categoryState = useAppSelector((state) => state.category.category);
+  const dispatch = useAppDispatch();
+  const changeCategoryState = async (str: string) => {
+    dispatch(changeCategory(str));
+  };
+
   const cart = useAppSelector((state) => state.cart.cart);
   const [numberProducts, setNumberProducts] = useState<number>(0);
+
   useEffect(() => {
-    setNumberProducts(cart.reduce((acc: number, current) => acc + current.number, 0));
+    setNumberProducts(
+      cart.reduce((acc: number, current) => acc + current.number, 0),
+    );
   }, [cart]);
-
-  const activeStyles = useMemo(
-    () => (bool: boolean) => (bool
-      ? 'link__active'
-      : 'link'),
-    [],
-  );
-
-  const activeLogo = useMemo(
-    () => (bool: boolean) => (bool
-      ? 'logo__active'
-      : 'logo'),
-    [],
-  );
 
   return (
     <div className="header">
       <div className="logoRow">
         <div className="logoBox">
           <img src={logoImg} alt="logoVape" height={70} />
-          <NavLink className={({ isActive }: { isActive: boolean }) => activeLogo(isActive)} to="/">
+          <NavLink
+            className="logo"
+            to="/"
+            onClick={() => {
+              changeCategoryState('');
+            }}
+          >
             Vape Family
           </NavLink>
         </div>
-        <NavLink to="/cart">
+        <NavLink
+          to="/cart"
+          onClick={() => {
+            changeCategoryState('');
+          }}
+        >
           <div className="cart">
             <div className="productInCart">{numberProducts}</div>
           </div>
         </NavLink>
       </div>
       <nav className="navigation">
-        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/disposable">
+        <NavLink
+          className={categoryState !== 'disposable' ? 'link' : 'link_active'}
+          to="/products"
+          onClick={() => {
+            changeCategoryState('disposable');
+          }}
+        >
           Одноразки
         </NavLink>
-        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/vapes">
+        <NavLink
+          className={categoryState !== 'vapes' ? 'link' : 'link_active'}
+          to="/products"
+          onClick={() => {
+            changeCategoryState('vapes');
+          }}
+        >
           Вейпы
         </NavLink>
-        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/juice">
+        <NavLink
+          className={categoryState !== 'juice' ? 'link' : 'link_active'}
+          to="/products"
+          onClick={() => {
+            changeCategoryState('juice');
+          }}
+        >
           Жидкости
         </NavLink>
-        <NavLink className={({ isActive }: { isActive: boolean }) => activeStyles(isActive)} to="/equipment">
+        <NavLink
+          className={categoryState !== 'equipment' ? 'link' : 'link_active'}
+          to="/products"
+          onClick={() => {
+            changeCategoryState('equipment');
+          }}
+        >
           Комплектующие
         </NavLink>
       </nav>
