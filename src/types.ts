@@ -3,6 +3,10 @@ export interface CartElem {
   number: number;
 }
 
+export interface CartState {
+  cart: CartElem[];
+}
+
 export interface Product {
   _id: string,
   category: string,

@@ -6,7 +6,6 @@ import { Product } from '../../types';
 
 function Disposable() {
   const [products, setProducts] = useState<Product[]>([]);
-  console.log('products = ', products);
 
   useEffect(() => {
     const api = async () => {

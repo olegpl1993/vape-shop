@@ -6,7 +6,7 @@ import { useAppSelector } from '../../hook';
 function Cart() {
   const cart = useAppSelector((state) => state.cart.cart);
 
-  if (!cart) {
+  if (cart.length === 0) {
     return (
       <div className="cart">Корзина пустая</div>
     );
