@@ -1,15 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CartElem } from '../types';
+import { CartElem, CartState } from '../types';
+
+const initialState: CartState = {
+  cart: [],
+};
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: {
-    cart: [
-      { id: 2, number: 1 },
-      { id: 3, number: 2 },
-      { id: 7, number: 1 },
-    ],
-  },
+  initialState,
   reducers: {
     changeCart(state, action: PayloadAction<CartElem[]>) {
       // eslint-disable-next-line no-param-reassign

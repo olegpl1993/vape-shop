@@ -1,17 +1,29 @@
-import React from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { useEffect, useState } from 'react';
 import './disposable.scss';
-import data from '../../data/database';
 import ProductCard from '../../components/productCard/productCard';
+import { Product } from '../../types';
 
 function Disposable() {
-  const { products } = data;
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const api = async () => {
+      const url = 'https://vape-shop-api.glitch.me/api/products';
+      const res = await fetch(url);
+      const datas: Product[] = await res.json();
+      setProducts(datas);
+    };
+    api();
+  }, []);
+
   return (
     <div className="disposable">
       <div className="productsBox">
-        {products.map((product, index) => (
+        {products.map((product) => (
           <ProductCard
-            key={product.id}
-            id={index}
+            key={product._id}
+            product={product}
           />
         ))}
       </div>
